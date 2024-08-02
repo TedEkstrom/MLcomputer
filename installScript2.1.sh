@@ -118,7 +118,8 @@ chmod 666 /var/run/docker.sock
 
 ## Run permission fix on error every startup
 Echo "Run permission fix on error every startup"
-echo "chmod 666 /var/run/docker.sock" > /etc/init.d/dockerPermissionFix.sh
+echo "chmod 666 /var/run/docker.sock" > dockerPermissionFix.sh
+sudo cp dockerPermissionFix.sh /etc/init.d/
 chmod +x /etc/init.d/dockerPermissionFix.sh
 update-rc.d dockerPermissionFix.sh defaults
 
