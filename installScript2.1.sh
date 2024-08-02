@@ -1,3 +1,4 @@
+## Run this script with: sudo -i
 
 echo "Enable interactive mode"
 export DEBIAN_FRONTEND=noninteractive
