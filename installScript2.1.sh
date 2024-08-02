@@ -116,6 +116,10 @@ systemctl restart crio
 echo "Fixing permission error on docker"
 chmod 666 /var/run/docker.sock
 
+## Run permission fix on error every startup
+echo chmod 666 /var/run/docker.sock > /etc/init.d/dockerPermissionFix.sh
+chmod +x /etc/init.d/dockerPermissionFix.sh
+update-rc.d dockerPermissionFix.sh defaults
 
 # Install Nvidia Docker runtime
 echo "Install Nvidia Docker runtime"
