@@ -279,7 +279,7 @@ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.ta
 ## Reclaime space from docker
 #docker image prune --all --force
 
-## FF exampel
+## FF example
 #FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 #ARG DEBIAN_FRONTEND=noninteractive
 
