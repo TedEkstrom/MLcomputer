@@ -8,7 +8,8 @@ echo "Updating and upgrading ubuntu"
 apt update && apt upgrade
 
 echo "Installing Gnome desktop"
-apt install gnome-session gdm3 gnome-terminal nemo -y
+#apt install gnome-session gdm3 gnome-terminal nemo -y
+apt install --no-install-recommends ubuntu-desktop
 
 echo "Install add docker to apt"
 # Add Docker's official GPG key:
