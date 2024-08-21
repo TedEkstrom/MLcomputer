@@ -8,6 +8,7 @@ echo "Updating and upgrading ubuntu"
 apt update && apt upgrade
 
 echo "Installning domain package"
+echo "default realm: HKR.SE"
 sudo apt install realmd sssd adcli samba-common krb5-user packagekit
 sudo apt install sssd-ad sssd-tools realmd adcli samba-common-bin policykit-1 packagekit
 
