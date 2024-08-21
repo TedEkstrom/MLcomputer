@@ -12,7 +12,41 @@ echo "default realm: HKR.SE"
 sudo apt install realmd sssd adcli samba-common krb5-user packagekit
 sudo apt install sssd-ad sssd-tools realmd adcli samba-common-bin policykit-1 packagekit
 
+echo "Change /etc/pam.d/common-session"
+cat > /etc/pam.d/common-session << EOL
+#
+# /etc/pam.d/common-session - session-related modules common to all services
+#
+# This file is included from other service-specific PAM config files,
+# and should contain a list of modules that define tasks to be performed
+# at the start and end of interactive sessions.
+#
+# As of pam 1.0.1-6, this file is managed by pam-auth-update by default.
+# To take advantage of this, it is recommended that you configure any
+# local modules either before or after the default block, and use
+# pam-auth-update to manage selection of other modules.  See
+# pam-auth-update(8) for details.
 
+# here are the per-package modules (the "Primary" block)
+session	[default=1]			pam_permit.so
+# here's the fallback if no module succeeds
+session	requisite			pam_deny.so
+# prime the stack with a positive return value if there isn't one already;
+# this avoids us returning an error just because nothing sets a success code
+# since the modules above will each just jump around
+session	required			pam_permit.so
+# The pam_umask module will set the umask according to the system default in
+# /etc/login.defs and user settings, solving the problem of different
+# umask settings with different shells, display managers, remote sessions etc.
+# See "man pam_umask".
+session optional			pam_umask.so
+# and here are more per-package modules (the "Additional" block)
+session	required	pam_unix.so 
+session	optional			pam_sss.so 
+session	optional	pam_systemd.so 
+# end of pam-auth-update config
+session required pam_mkhomedir.so skel=/etc/skel/ umask=0022
+EOL
 
 echo "Installing Gnome desktop"
 #apt install gnome-session gdm3 gnome-terminal nemo -y
