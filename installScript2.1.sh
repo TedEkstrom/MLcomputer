@@ -7,6 +7,12 @@ export NEEDRESTART_MODE=a
 echo "Updating and upgrading ubuntu"
 apt update && apt upgrade
 
+echo "Installning domain package"
+sudo apt install realmd sssd adcli samba-common krb5-user packagekit
+sudo apt install sssd-ad sssd-tools realmd adcli samba-common-bin policykit-1 packagekit
+
+
+
 echo "Installing Gnome desktop"
 #apt install gnome-session gdm3 gnome-terminal nemo -y
 apt install --no-install-recommends ubuntu-desktop
