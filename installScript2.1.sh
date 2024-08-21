@@ -236,6 +236,19 @@ systemctl restart docker
 echo "Stopping computer going to slepp"
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
+
+## Fixing netplan - unmange network
+echo "Fixing netplan - unmange network"
+cat > /etc/netplan/00-installer-config.yaml << EOL
+# This is the network config written by 'subiquity'
+network:
+  renderer: NetworkManager # add this line
+  ethernets:
+    ens33:
+      dhcp4: true
+  version: 2
+EOL
+
 ######################################################################
 ######################################################################
 ######################################################################
