@@ -9,8 +9,8 @@ apt update && apt upgrade
 
 echo "Installning domain package"
 echo "default realm: HKR.SE"
-sudo apt install realmd sssd adcli samba-common krb5-user packagekit
-sudo apt install sssd-ad sssd-tools realmd adcli samba-common-bin policykit-1 packagekit
+sudo apt install realmd sssd adcli samba-common krb5-user packagekit -y
+sudo apt install sssd-ad sssd-tools realmd adcli samba-common-bin policykit-1 packagekit -y
 
 echo "Change /etc/pam.d/common-session"
 cat > /etc/pam.d/common-session << EOL
@@ -50,12 +50,12 @@ EOL
 
 echo "Installing Gnome desktop"
 #apt install gnome-session gdm3 gnome-terminal nemo -y
-apt install --no-install-recommends ubuntu-desktop
+apt install --no-install-recommends ubuntu-desktop -y
 
 echo "Install add docker to apt"
 # Add Docker's official GPG key:
 apt-get update
-apt-get install ca-certificates curl
+apt-get install ca-certificates curl -y
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 chmod a+r /etc/apt/keyrings/docker.asc
@@ -78,7 +78,7 @@ apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 
 echo "Make docker rootless"
 apt-get install -y dbus-user-session 
-apt-get install docker-ce-rootless-extras
+apt-get install docker-ce-rootless-extras -y
 
 cat <<EOF > /etc/apparmor.d/$(echo $HOME/bin/rootlesskit | sed -e s@^/@@ -e s@/@.@g)
 abi <abi/4.0>,
@@ -225,7 +225,7 @@ echo "/etc/subgid:"
 cat /etc/subgid
 echo "Group: tsusers:"
 getent group | grep tsusers
-echo "If the user is missing in the lists, the its correct."
+echo "If the user is missing in the lists, then its correct."
 EOL
 
 # Logout
