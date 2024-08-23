@@ -4,6 +4,9 @@ echo "Enable interactive mode"
 export DEBIAN_FRONTEND=noninteractive
 export NEEDRESTART_MODE=a
 
+echo "Set timezone"
+sudo timedatectl set-timezone Europe/Stockholm
+
 echo "Updating and upgrading ubuntu"
 apt update && apt upgrade
 
