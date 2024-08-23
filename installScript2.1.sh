@@ -55,6 +55,10 @@ echo "Installing Gnome desktop"
 #apt install gnome-session gdm3 gnome-terminal nemo -y
 apt install --no-install-recommends ubuntu-desktop -y
 
+echo "Installing Google Chrome"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install ./google-chrome-stable_current_amd64.deb
+
 echo "Install add docker to apt"
 # Add Docker's official GPG key:
 apt-get update
