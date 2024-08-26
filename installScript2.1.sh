@@ -303,7 +303,7 @@ cat > /home/administrator/fixDockerSock.sh << EOL
 chmod 666 /var/run/docker.sock
 EOL
 
-cp fixDockerSock.sh /etc/init.d/
+cp /home/administrator/fixDockerSock.sh /etc/init.d/
 chmod +x /etc/init.d/fixDockerSock.sh
 update-rc.d fixDockerSock.sh defaults
 
