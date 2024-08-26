@@ -297,6 +297,16 @@ network:
   version: 2
 EOL
 
+## Fixing permission error on docker
+echo "Fixing permission error on docker"
+cat > /home/administrator/fixDockerSock.sh << EOL
+chmod 666 /var/run/docker.sock
+EOL
+
+cp fixDockerSock.sh /etc/init.d/
+chmod +x /etc/init.d/fixDockerSock.sh
+update-rc.d fixDockerSock.sh defaults
+
 ######################################################################
 ######################################################################
 ######################################################################
