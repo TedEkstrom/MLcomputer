@@ -173,6 +173,9 @@ sudo cp dockerPermissionFix.sh /etc/init.d/
 chmod +x /etc/init.d/dockerPermissionFix.sh
 update-rc.d dockerPermissionFix.sh defaults
 
+echo "Make persmission script accessble"
+PATH="/etc/init.d:$PATH"
+
 # Install Nvidia Docker runtime
 echo "Install Nvidia Docker runtime"
 curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
@@ -257,7 +260,7 @@ chmod +x /usr/share/CustomScript/removeUser
 chmod +x /usr/share/CustomScript/logoutUser
 
 echo "MAKE SCRIPT UNDER CustomScript REACHABLE"
-PATH="/usr/local/CustomScript:$PATH"
+PATH=":/usr/local/CustomScript:$PATH"
 
 ###
 ### Ig you are getting the error:
