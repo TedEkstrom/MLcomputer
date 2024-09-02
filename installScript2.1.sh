@@ -177,7 +177,7 @@ chmod +x /etc/init.d/dockerPermissionFix.sh
 update-rc.d dockerPermissionFix.sh defaults
 
 echo "Make persmission script accessble"
-PATH="/etc/init.d:$PATH"
+export PATH=$PATH:etc/init.d
 
 # Install Nvidia Docker runtime
 echo "Install Nvidia Docker runtime"
