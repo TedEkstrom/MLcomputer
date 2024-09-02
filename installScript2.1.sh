@@ -197,7 +197,7 @@ cat /etc/nvidia-container-runtime/config.toml | awk '{sub(/no-cgroups = true/,"n
 
 # AddUser
 echo "CREATE SCRIPT FOR addUser in CustomScript"
-cat > /usr/share/CustomScript/addUser << EOL
+cat > /usr/local/bin/addUser << EOL
 #/bin/bash
 # /usr/share/CustomScript
 $USER=""
@@ -217,9 +217,9 @@ EOL
 
 # RemoveUser
 echo "CREATE SCRIPT FOR removeUser in CustomScript"
-cat > /usr/share/CustomScript/removeUser << EOL
+cat > /usr/local/bin/removeUser << EOL
 #/bin/bash
-# /usr/share/CustomScript
+# /usr/local/bin
 
 echo "Remove user from the system."
 
@@ -237,7 +237,7 @@ EOL
 
 # Logout
 echo "CREATE SCRIPT FOR logotUser in CustomScript"
-cat > /usr/share/CustomScript/logoutUser << EOL
+cat > /usr/local/bin/logoutUser << EOL
 #/bin/bash
 # /usr/share/CustomScript
 
@@ -252,9 +252,9 @@ who -u
 EOL
 
 echo "MAKE SCRIPT UNDER CustomScript RUNABLE"
-chmod +x /usr/share/CustomScript/addUser
-chmod +x /usr/share/CustomScript/removeUser
-chmod +x /usr/share/CustomScript/logoutUser
+chmod +x /usr/local/bin/addUser
+chmod +x /usr/local/bin/removeUser
+chmod +x /usr/local/bin/logoutUser
 
 ###
 ### Ig you are getting the error:
@@ -296,7 +296,4 @@ EOL
 
 ######################################################################
 
-echo "Egna script /usr/share/CustomScript"
-export PATH=$PATH:etc/init.d:/usr/share/CustomScript
-echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:etc/init.d:/usr/share/CustomScript"' > /etc
-/environment
+sudo cp /etc/init.d/dockerPermissionFix.sh dockerPermissionFix.sh
