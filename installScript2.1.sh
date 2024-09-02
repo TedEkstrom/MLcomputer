@@ -304,3 +304,6 @@ network:
 EOL
 
 ######################################################################
+
+echo "Egna script /usr/share/CustomScript"
+export PATH=$PATH:/usr/share/CustomScript
