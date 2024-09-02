@@ -297,6 +297,6 @@ EOL
 ######################################################################
 
 echo "Egna script /usr/share/CustomScript"
-"export PATH=$PATH:/usr/share/CustomScript
+export PATH=$PATH:etc/init.d:/usr/share/CustomScript
 echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:etc/init.d:/usr/share/CustomScript"' > /etc
 /environment
