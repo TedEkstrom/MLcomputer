@@ -197,10 +197,6 @@ newgrp docker
 
 cat /etc/nvidia-container-runtime/config.toml | awk '{sub(/no-cgroups = true/,"no-cgroups = false")}1' > ./config2.toml && mv ./config2.toml /etc/nvidia-container-runtime/config.toml
 
-## Create custom script for addUser, removeUser and logoutUser
-echo "Make folder for CutomScript"
-mkdir /usr/share/CustomScript
-
 # AddUser
 echo "CREATE SCRIPT FOR addUser in CustomScript"
 cat > /usr/share/CustomScript/addUser << EOL
