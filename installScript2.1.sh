@@ -176,8 +176,6 @@ sudo cp dockerPermissionFix.sh /etc/init.d/
 chmod +x /etc/init.d/dockerPermissionFix.sh
 update-rc.d dockerPermissionFix.sh defaults
 
-echo "Make persmission script accessble"
-export PATH=$PATH:etc/init.d
 
 # Install Nvidia Docker runtime
 echo "Install Nvidia Docker runtime"
@@ -258,9 +256,6 @@ chmod +x /usr/share/CustomScript/addUser
 chmod +x /usr/share/CustomScript/removeUser
 chmod +x /usr/share/CustomScript/logoutUser
 
-echo "MAKE SCRIPT UNDER CustomScript REACHABLE"
-PATH=":/usr/local/CustomScript:$PATH"
-
 ###
 ### Ig you are getting the error:
 ### "docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
@@ -302,4 +297,6 @@ EOL
 ######################################################################
 
 echo "Egna script /usr/share/CustomScript"
-export PATH=$PATH:/usr/share/CustomScript
+"export PATH=$PATH:/usr/share/CustomScript
+echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:etc/init.d:/usr/share/CustomScript"' > /etc
+/environment
