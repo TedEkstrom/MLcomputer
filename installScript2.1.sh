@@ -296,4 +296,8 @@ EOL
 
 ######################################################################
 
-sudo cp /etc/init.d/dockerPermissionFix.sh dockerPermissionFix.sh
+echo "Add dockerPermissionFix.sh to /usr/local/bin/ and make it user runnable"
+sudo cp /etc/init.d/dockerPermissionFix.sh /usr/local/bin/
+echo ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh >> /etc/sudoders.d
+
+######################################################################
