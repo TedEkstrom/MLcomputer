@@ -300,4 +300,8 @@ echo "Add dockerPermissionFix.sh to /usr/local/bin/ and make it user runnable"
 sudo cp /etc/init.d/dockerPermissionFix.sh /usr/local/bin/
 echo ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh >> /etc/sudoders.d
 
+sudo rm /etc/init.d/dockerPermissionFix.sh
+sudo echo sudo /usr/local/bin/dockerPermissionFix.sh > autoDockerFix.sh
+sudo cp autoDockerFix.sh /etc/profile.d
+
 ######################################################################
