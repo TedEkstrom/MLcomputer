@@ -5,7 +5,7 @@ Get MLcomputer up and running
 4) run conf-sssd.sh
 
  
-Push docker
+Push a docker image
 1) Docker login
 
 ![image](https://github.com/user-attachments/assets/327a1c2e-c498-4eac-a494-70b4f51346de)
@@ -17,3 +17,9 @@ Push docker
 5) docker push <inloggning/repo:tag --> exempelvis: docker push mindbraker2011/dt271
    
 ![image](https://github.com/user-attachments/assets/5d4dcc34-d3a2-40d8-8440-8804bebab25a)
+
+
+Pull your docker image
+1) docker pull mindbraker2011/dt271 --> docker pull mindbraker2011/dt271:latest
+
+![image](https://github.com/user-attachments/assets/5d1e7a0c-d9b3-4e2a-9686-57cc2a748e9f)
