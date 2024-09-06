@@ -172,8 +172,8 @@ chmod 666 /var/run/docker.sock
 ## Run permission fix on error every startup
 Echo "Run permission fix on error every startup"
 echo "chmod 666 /var/run/docker.sock" > dockerPermissionFix.sh
-sudo cp dockerPermissionFix.sh /etc/init.d/
-chmod +x /etc/init.d/dockerPermissionFix.sh
+sudo cp dockerPermissionFix.sh /usr/local/bin
+chmod +x /usr/local/bin/dockerPermissionFix.sh
 update-rc.d dockerPermissionFix.sh defaults
 
 
@@ -297,11 +297,10 @@ EOL
 ######################################################################
 
 echo "Add dockerPermissionFix.sh to /usr/local/bin/ and make it user runnable"
-sudo cp /etc/init.d/dockerPermissionFix.sh /usr/local/bin/
-echo ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh >> /etc/sudoders.d
+#echo ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh >> /etc/sudoders.d 
+# ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh ## Denna måste manuellt läggas till i visudo
 
-sudo rm /etc/init.d/dockerPermissionFix.sh
-sudo echo sudo /usr/local/bin/dockerPermissionFix.sh > autoDockerFix.sh
-sudo cp autoDockerFix.sh /etc/profile.d
+echo /usr/local/bin/dockerPermissionFix.sh > autoDockerFix.sh
+cp autoDockerFix.sh /etc/profile.d
 
 ######################################################################
