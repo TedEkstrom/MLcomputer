@@ -8,9 +8,8 @@ Get MLcomputer up and running
 Push docker
 1) Docker login
 
-REPOSITORY             TAG       IMAGE ID       CREATED          SIZE
-mindbraker2011/dt271   latest    4772f6c698d6   12 minutes ago   293MB
-ubuntulabb             latest    4772f6c698d6   12 minutes ago   293MB
+
+![image](https://github.com/user-attachments/assets/327a1c2e-c498-4eac-a494-70b4f51346de)
 
 3) docker image tag <namn-image> <inloggning/repo:tag --> exempelvis: docker image tag ubuntulabb mindbraker2011/dt271:latest
 4) docker push <inloggning/repo:tag --> exempelvis: docker push mindbraker2011/dt271
