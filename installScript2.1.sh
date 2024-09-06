@@ -165,18 +165,6 @@ nvidia-ctk config --set nvidia-container-cli.no-cgroups --in-place
 nvidia-ctk runtime configure --runtime=crio
 systemctl restart crio
 
-## Fixing permission error on docker
-echo "Fixing permission error on docker"
-chmod 666 /var/run/docker.sock
-
-## Run permission fix on error every startup
-Echo "Run permission fix on error every startup"
-echo "chmod 666 /var/run/docker.sock" > dockerPermissionFix.sh
-sudo cp dockerPermissionFix.sh /usr/local/bin
-chmod +x /usr/local/bin/dockerPermissionFix.sh
-update-rc.d dockerPermissionFix.sh defaults
-
-
 # Install Nvidia Docker runtime
 echo "Install Nvidia Docker runtime"
 curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
@@ -295,6 +283,16 @@ network:
 EOL
 
 ######################################################################
+## Fixing permission error on docker
+echo "Fixing permission error on docker"
+chmod 666 /var/run/docker.sock
+
+## Run permission fix on error every startup
+Echo "Run permission fix on error every startup"
+echo "chmod 666 /var/run/docker.sock" > dockerPermissionFix.sh
+sudo cp dockerPermissionFix.sh /usr/local/bin
+chmod +x /usr/local/bin/dockerPermissionFix.sh
+update-rc.d dockerPermissionFix.sh defaults
 
 echo "Add dockerPermissionFix.sh to /usr/local/bin/ and make it user runnable"
 #echo ALL ALL=NOPASSWD: /usr/local/bin/dockerPermissionFix.sh >> /etc/sudoders.d 
