@@ -8,7 +8,9 @@ Get MLcomputer up and running
 Push docker
 1) Docker login
 2) docker image tag <namn-image> <inloggning/repo:tag
+
 exempelvis: docker image tag ubuntulabb mindbraker2011/dt271:latest
+
 3) docker push <inloggning/repo:tag
 exempelvis: docker push mindbraker2011/dt271
 
