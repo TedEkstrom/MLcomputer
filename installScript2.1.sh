@@ -180,19 +180,17 @@ gpasswd -a $USER docker
 usermod -a -G docker $(whoami)
 newgrp docker
 
-
 cat /etc/nvidia-container-runtime/config.toml | awk '{sub(/no-cgroups = true/,"no-cgroups = false")}1' > ./config2.toml && mv ./config2.toml /etc/nvidia-container-runtime/config.toml
+
+#############################################################################
 
 # AddUser
 echo "CREATE SCRIPT FOR addUser in CustomScript"
 cat > /usr/local/bin/addUser << EOL
 #/bin/bash
-# /usr/share/CustomScript
-$USER=""
-
 echo "Add new user to the system."
-
-usermod -a -G tsusers $USER
+echo "User to add: $1"
+usermod -a -G tsusers $1
 
 echo "/etc/subuid:"
 cat /etc/subuid
@@ -207,11 +205,10 @@ EOL
 echo "CREATE SCRIPT FOR removeUser in CustomScript"
 cat > /usr/local/bin/removeUser << EOL
 #/bin/bash
-# /usr/local/bin
 
 echo "Remove user from the system."
-
- pkill -KILL -u $USER
+echo "User to remove: $1"
+ pkill -KILL -u $1
  deluser $USER tsusers
 
 echo "/etc/subuid:"
@@ -227,13 +224,12 @@ EOL
 echo "CREATE SCRIPT FOR logotUser in CustomScript"
 cat > /usr/local/bin/logoutUser << EOL
 #/bin/bash
-# /usr/share/CustomScript
 
 echo "Logout user from system."
 echo "logged in users:"
 who -u
 
-pkill -KILL -u $USER
+pkill -KILL -u $1
 
 echo "If the user is missing, then its correct."
 who -u
