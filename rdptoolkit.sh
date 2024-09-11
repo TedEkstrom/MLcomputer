@@ -25,7 +25,7 @@ cat > /usr/local/bin/removeUser << EOL
 echo "Remove user from the system."
 echo "User to remove: $1"
  pkill -KILL -u $1
- deluser $USER tsusers
+ deluser $1 tsusers
 
 echo "/etc/subuid:"
 cat /etc/subuid
