@@ -2,7 +2,7 @@
 
 # AddUser
 echo "CREATE SCRIPT FOR addUser in CustomScript"
-cat > /usr/local/bin/addUser << EOL
+cat > /usr/local/bin/addUserXRDP << EOL
 #/bin/bash
 echo "Add new user to the system."
 echo "User to add: $1"
@@ -19,7 +19,7 @@ EOL
 
 # RemoveUser
 echo "CREATE SCRIPT FOR removeUser in CustomScript"
-cat > /usr/local/bin/removeUser << EOL
+cat > /usr/local/bin/removeUserXRDP << EOL
 #/bin/bash
 
 echo "Remove user from the system."
@@ -38,7 +38,7 @@ EOL
 
 # Logout
 echo "CREATE SCRIPT FOR logotUser in CustomScript"
-cat > /usr/local/bin/logoutUser << EOL
+cat > /usr/local/bin/logoutUserXRDP << EOL
 #/bin/bash
 
 echo "Logout user from system."
@@ -52,6 +52,6 @@ who -u
 EOL
 
 echo "MAKE SCRIPT UNDER CustomScript RUNABLE"
-chmod +x /usr/local/bin/addUser
-chmod +x /usr/local/bin/removeUser
-chmod +x /usr/local/bin/logoutUser
+chmod +x /usr/local/bin/addUserXRDP
+chmod +x /usr/local/bin/removeUserXRDP
+chmod +x /usr/local/bin/logoutUserXRDP
