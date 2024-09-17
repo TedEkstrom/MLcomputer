@@ -298,3 +298,18 @@ echo /usr/local/bin/dockerPermissionFix.sh > autoDockerFix.sh
 cp autoDockerFix.sh /etc/profile.d
 
 ######################################################################
+
+## Speeding up XRDP ##
+# https://askubuntu.com/questions/1323601/xrdp-is-quite-slow
+
+# /etc/xrdp/sesman.ini:
+#    Policy=UBDI
+
+# /etc/xrdp/xrdp.ini
+#    max_bpp=16
+#    xserverbpp=16
+#    tcp_send_buffer_bytes=4194304
+
+# Tweak for TCP (2x request buffer size):
+    #sudo sysctl -w net.core.wmem_max=8388608
+
