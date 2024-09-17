@@ -307,9 +307,15 @@ cp autoDockerFix.sh /etc/profile.d
 
 # /etc/xrdp/xrdp.ini
 #    max_bpp=16
-#    xserverbpp=16
 #    tcp_send_buffer_bytes=4194304
 
 # Tweak for TCP (2x request buffer size):
     #sudo sysctl -w net.core.wmem_max=8388608
 
+######################################################################
+## Fix loggon name problem in XRDP
+# /etc/xrdp/xrdp.ini
+    # domain_user_separator=@
+    # autorun = @hkr.se
+    # enable_token_login=true
+    
