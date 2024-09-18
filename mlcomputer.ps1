@@ -1,6 +1,6 @@
 ﻿Install-module -Name Posh-SSH
 
-$user = "ted.ekstrom@hkr.se"
+$user = whoami /upn
 
 while (1) {
    
