@@ -328,5 +328,5 @@ cp autoDockerFix.sh /etc/profile.d
     # sudo systemctl daemon-reload
     # test: docker run --rm --gpus all ubuntu nvidia-smi 
 
-
+######################################################################
 
