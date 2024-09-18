@@ -318,4 +318,15 @@ cp autoDockerFix.sh /etc/profile.d
     # domain_user_separator=@
     # autorun = @hkr.se
     # enable_token_login=true
-    
+
+######################################################################
+# https://stackoverflow.com/questions/72932940/failed-to-initialize-nvml-unknown-error-in-docker-after-few-hours
+
+# /etc/nvidia-container-runtime/config.toml
+    # no-cgroups = false
+    # systemctl restart docker
+    # sudo systemctl daemon-reload
+    # test: docker run --rm --gpus all ubuntu nvidia-smi 
+
+
+
