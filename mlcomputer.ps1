@@ -55,7 +55,7 @@ while (1) {
                 Write-Host "############################################################################################"
                 Write-Host ""
                 Write-Host "Checking mlcomputer00$_" -ForegroundColor DarkYellow;  
-                (Invoke-SSHCommand -SSHSession $session -Command "docker rmi -f $(docker images -aq)").Output
+                (Invoke-SSHCommand -SSHSession $session -Command 'docker rmi -f $(docker images -aq)').Output
             } 
           }
 
@@ -66,7 +66,7 @@ while (1) {
                 Write-Host "############################################################################################"
                 Write-Host ""
                 Write-Host "Checking mlcomputer00$_" -ForegroundColor DarkYellow;  
-                (Invoke-SSHCommand -SSHSession $session -Command "docker rm -vf $(docker ps -aq)").Output
+                (Invoke-SSHCommand -SSHSession $session -Command 'docker rm -vf $(docker ps -aq)').Output
             } 
           }
 
