@@ -19,6 +19,7 @@ while (1) {
             [7] Send command
             [8] Connect with ssh
             [9] Change user
+            [10] Exit
         "
         $input = Read-Host -Prompt "choose? "
         Write-Host ""
