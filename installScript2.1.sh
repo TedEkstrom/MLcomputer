@@ -308,6 +308,8 @@ cp autoDockerFix.sh /etc/profile.d
 # /etc/xrdp/xrdp.ini
 #    max_bpp=16
 #    tcp_send_buffer_bytes=4194304
+mlcomputer
+#    killConnection=true
 
 # Tweak for TCP (2x request buffer size):
     #sudo sysctl -w net.core.wmem_max=8388608
