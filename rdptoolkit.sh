@@ -51,7 +51,15 @@ echo "If the user is missing, then its correct."
 who -u
 EOL
 
+echo "CREATE SCRIPT FOR showUserXRDP in CustomScript"
+cat > /usr/local/bin/showUserXRDP << EOL
+echo "User in XRDP-group."
+echo "Group: tsusers:"
+getent group | grep tsusers
+EOL
+
 echo "MAKE SCRIPT UNDER CustomScript RUNABLE"
 chmod +x /usr/local/bin/addUserXRDP
 chmod +x /usr/local/bin/removeUserXRDP
 chmod +x /usr/local/bin/logoutUserXRDP
+chmod +x /usr/local/bin/showUserXRDP
