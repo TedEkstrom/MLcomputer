@@ -337,7 +337,7 @@ mlcomputer
 ######################################################################
 
 # sudo nano /etc/ssh/sshd_config
-    # ClientAliveInterval 3,600,000
+    # ClientAliveInterval 3600000
     # ClientAliveCountMax 5
 
 
