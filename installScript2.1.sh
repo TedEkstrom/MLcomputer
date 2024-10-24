@@ -334,3 +334,19 @@ mlcomputer
 # Install onedrive (need only terminal)
 # https://www.linuxstart.com/onedrive-ubuntu/#:~:text=The%20easiest%20way%20to%20download%20OneDrive%20for%20Ubuntu,give%20access%20to%20the%20OneDrive%20Client%20for%20Linux.
 
+######################################################################
+
+# sudo nano /etc/ssh/sshd_config
+    # ClientAliveInterval 3,600,000
+    # ClientAliveCountMax 5
+
+
+
+
+
+
+
+
+
+
+######################################################################
