@@ -335,7 +335,7 @@ mlcomputer
 # https://www.linuxstart.com/onedrive-ubuntu/#:~:text=The%20easiest%20way%20to%20download%20OneDrive%20for%20Ubuntu,give%20access%20to%20the%20OneDrive%20Client%20for%20Linux.
 
 ######################################################################
-
+# https://linuxhandbook.com/auto-logout-linux/#:~:text=Open%20the%20%2Fetc%2Fprofile%20file%20in%20a%20text%20editor,minutes%20of%20inactivity%20will%20be%20logged%20out%20automatically.
 # sudo nano /etc/ssh/sshd_config
     # ClientAliveInterval 3600000
     # ClientAliveCountMax 5
