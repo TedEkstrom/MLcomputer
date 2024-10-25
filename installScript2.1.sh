@@ -321,7 +321,7 @@ echo "Add dockerPermissionFix.sh to /usr/local/bin/ and make it user runnable"
 
 echo /usr/local/bin/dockerPermissionFix.sh > autoDockerFix.sh
 cp autoDockerFix.sh /etc/profile.d
-
+chmod +x /etc/profile.d/autoDockerFix.sh
 ######################################################################
 
 ## Speeding up XRDP ##
