@@ -278,6 +278,31 @@ network:
   version: 2
 EOL
 
+
+
+######################################################################
+## Visual code
+# https://dev.to/abbazs/how-to-install-vscode-in-ubuntu-using-apt-get-2m8o#:~:text=Install%20VSCode%3A%20Run%20the%20following%20command%20to%20install,sudo%20aptitude%20update%20sudo%20aptitude%20install%20-y%20code
+
+# Download the Microsoft GPG key
+#curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+
+# Install the GPG key
+#sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+
+# Add the VSCode and Microsoft Edge repositories
+#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list'
+#sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# Remove the downloaded GPG key
+#sudo rm microsoft.gpg
+
+# Update package information
+#sudo apt update
+
+# Install VSCode
+#sudo apt install -y code
+
 ######################################################################
 ## Fixing permission error on docker
 echo "Fixing permission error on docker"
